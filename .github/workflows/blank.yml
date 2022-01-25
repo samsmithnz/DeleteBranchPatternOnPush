@@ -1,0 +1,16 @@
+name: Delete branches created that are not under features
+
+on:
+  push:
+    #branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run a one-line script
+        run: echo ${GITHUB_REF} # git branch -d <branch> 
