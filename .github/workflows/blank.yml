@@ -3,6 +3,7 @@ name: Delete branches created that are not under features
 on:
   push:
     #branches: [ main ]
+    
 
   workflow_dispatch:
 
@@ -12,5 +13,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Run a one-line script
-        run: echo ${GITHUB_REF} # git branch -d <branch> 
+      - uses: tspascoal/whack-a-branch@v1 
+        id: deletebranches
+        with:
+          branches-keep: 'main,releases/*,features/*'
+          delete-if-no-match: 'true'
+          dry-run: 'true'
+      - run: echo we deleted ${{ steps.deletebranches.outputs.deleted-branches }}
