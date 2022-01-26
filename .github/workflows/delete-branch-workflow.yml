@@ -25,9 +25,9 @@ jobs:
         id: deletebranches
         with:
           branches-keep: 'main,releases/*,features/*'
-          delete-if-no-match: 'true'
+          delete-if-no-match: true
           onlyNew: true
-          dry-run: 'false'
-      - run: echo we deleted ${{ steps.deletebranches.outputs.deleted-branches }}
-      - run: echo pushed by ${{ github.event.pusher.name }}
+          dry-run: false
+      - run: echo 'we deleted ${{ steps.deletebranches.outputs.deleted-branches }}'
+      - run: echo 'pushed by ${{ github.event.pusher.name }}'
       
