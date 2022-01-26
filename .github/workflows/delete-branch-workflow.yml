@@ -17,6 +17,7 @@ jobs:
         id: actorTeams
         with:
           username: ${{ github.actor }}
+          organization: SamSmithNZ-dotcom
           #team: '@SamSmithNZ-dotcom/devops-team'
           GITHUB_TOKEN: ${{ secrets.PAT }} 
       - uses: tspascoal/whack-a-branch@v1 
