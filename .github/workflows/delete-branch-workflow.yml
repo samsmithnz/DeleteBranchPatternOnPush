@@ -20,3 +20,4 @@ jobs:
           delete-if-no-match: 'true'
           dry-run: 'false'
       - run: echo we deleted ${{ steps.deletebranches.outputs.deleted-branches }}
+      - run: echo pushed by ${{ github.event.pusher.name }}
