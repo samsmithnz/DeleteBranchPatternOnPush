@@ -17,9 +17,10 @@ jobs:
         id: actorTeams
         with:
           username: ${{ github.actor }}
+          team: '@SamSmithNZ-dotcom/devops-team'
           GITHUB_TOKEN: ${{ secrets.PAT }} 
       - uses: tspascoal/whack-a-branch@v1 
-        if: ${{ !contains(steps.actorTeams.outputs.teams, 'DevOps Team') }}
+        if: ${{ !steps.actorTeams.outputs.isTeamMember }}
         id: deletebranches
         with:
           branches-keep: 'main,releases/*,features/*'
