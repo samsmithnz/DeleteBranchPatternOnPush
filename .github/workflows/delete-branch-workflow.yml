@@ -16,7 +16,7 @@ jobs:
       - uses: tspascoal/get-user-teams-membership@v1
         id: actorTeams
         with:
-          username: ${{ github.actor }}
+          username: '${{ github.actor }}@github.com'
           team: '@SamSmithNZ-dotcom/devops-team'
           GITHUB_TOKEN: ${{ secrets.PAT }} 
       - uses: tspascoal/whack-a-branch@v1 
