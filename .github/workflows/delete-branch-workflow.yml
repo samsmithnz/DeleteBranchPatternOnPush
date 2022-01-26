@@ -13,7 +13,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: tspascoal/get-user-teams-membership@v1
+        id: actorTeams
+        with:
+          username: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.PAT }} 
       - uses: tspascoal/whack-a-branch@v1 
+        if: ${{ !contains(steps.actorTeams.outputs.teams, 'DevOps Team') }}
         id: deletebranches
         with:
           branches-keep: 'main,releases/*,features/*'
@@ -21,3 +27,4 @@ jobs:
           dry-run: 'false'
       - run: echo we deleted ${{ steps.deletebranches.outputs.deleted-branches }}
       - run: echo pushed by ${{ github.event.pusher.name }}
+      
