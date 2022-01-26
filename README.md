@@ -1,1 +1,1 @@
-# DeleteBranchPatternOnPush
+# DeleteBranchPatternOnPushs
