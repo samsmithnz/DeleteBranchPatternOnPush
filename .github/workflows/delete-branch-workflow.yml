@@ -26,7 +26,6 @@ jobs:
         with:
           branches-keep: 'main,develop'
           delete-if-no-match: true
-          onlyNew: true
           dry-run: false
       - run: echo 'we deleted ${{ steps.deletebranches.outputs.deleted-branches }}'
       - run: echo 'pushed by ${{ github.event.pusher.email }}'
