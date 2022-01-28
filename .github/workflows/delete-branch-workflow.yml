@@ -24,7 +24,7 @@ jobs:
         if: ${{ !steps.actorTeams.outputs.isTeamMember }}
         id: deletebranches
         with:
-          branches-keep: 'main,releases/*,features/*'
+          branches-keep: 'main,develop,Release/PI*,SysDemo/PI*,features/*'
           delete-if-no-match: true
           onlyNew: true
           dry-run: false
