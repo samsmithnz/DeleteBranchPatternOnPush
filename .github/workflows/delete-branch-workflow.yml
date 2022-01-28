@@ -21,7 +21,7 @@ jobs:
           #team: '@SamSmithNZ-dotcom/devops-team'
           GITHUB_TOKEN: ${{ secrets.PAT }} 
       - uses: tspascoal/whack-a-branch@v1 
-        if: ${{ !steps.actorTeams.outputs.isTeamMember }}
+        #if: ${{ !steps.actorTeams.outputs.isTeamMember }}
         id: deletebranches
         with:
           branches-keep: 'main,develop,Release/PI*,SysDemo/PI*,features/*'
