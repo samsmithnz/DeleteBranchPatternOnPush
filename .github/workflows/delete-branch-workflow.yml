@@ -24,7 +24,7 @@ jobs:
         #if: ${{ !steps.actorTeams.outputs.isTeamMember }}
         id: deletebranches
         with:
-          branches-keep: 'main,develop'
+          branches-keep: 'main,develop,releases/*'
           delete-if-no-match: true
           dry-run: false
       - run: echo 'we deleted ${{ steps.deletebranches.outputs.deleted-branches }}'
